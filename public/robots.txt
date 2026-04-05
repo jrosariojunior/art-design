@@ -1,0 +1,19 @@
+# robots.txt para José Criativos
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /*.pdf$
+Disallow: /*.jpg$
+Disallow: /*.png$
+
+# Sitemap
+Sitemap: https://josecriativos.com/sitemap.xml
+
+# Especificar tempo de rastreamento
+Crawl-delay: 1
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0

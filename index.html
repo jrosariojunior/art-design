@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Criativos - Decoração e Soluções Digitais Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --preto-profundo: #1C1C1C;
+            --dourado: #C9A24A;
+            --champagne: #E8D8C0;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5;
+            --cinza-escuro: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--preto-profundo);
+            background-color: var(--branco);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--preto-profundo);
+            color: var(--branco);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dourado);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--dourado);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--preto-profundo) 0%, var(--cinza-escuro) 100%);
+            color: var(--branco);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--dourado) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .destaque {
+            color: var(--dourado);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--champagne);
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--dourado);
+            color: var(--preto-profundo);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dourado);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--dourado);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 162, 74, 0.3);
+        }
+
+        .btn-secundario {
+            background-color: transparent;
+            color: var(--dourado);
+            margin-left: 1rem;
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--dourado);
+            color: var(--preto-profundo);
+        }
+
+        /* SERVIÇOS */
+        .servicos {
+            padding: 5rem 2rem;
+            background-color: var(--cinza-claro);
+        }
+
+        .servicos h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--preto-profundo);
+        }
+
+        .servicos h2 .dourado {
+            color: var(--dourado);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--branco);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--dourado);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(201, 162, 74, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dourado);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--preto-profundo);
+        }
+
+        .card p {
+            color: var(--cinza-escuro);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            padding: 5rem 2rem;
+            background-color: var(--branco);
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--preto-profundo);
+        }
+
+        .portfolio h2 .dourado {
+            color: var(--dourado);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria-item {
+            height: 250px;
+            background: linear-gradient(135deg, var(--champagne) 0%, var(--dourado) 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--preto-profundo);
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* CHAMADA À AÇÃO */
+        .cta {
+            background: linear-gradient(135deg, var(--preto-profundo) 0%, var(--cinza-escuro) 100%);
+            color: var(--branco);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--champagne);
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--branco);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--preto-profundo);
+            color: var(--branco);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--dourado);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--dourado);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--champagne);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--dourado);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background-color: var(--dourado);
+            color: var(--preto-profundo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--champagne);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 162, 74, 0.3);
+            padding-top: 2rem;
+            color: var(--champagne);
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .btn, .btn-secundario {
+                display: block;
+                margin-top: 1rem;
+                margin-left: 0 !important;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .servicos h2, .portfolio h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">JOSÉ CRIATIVOS</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transformamos Ideias em <span class="destaque">Experiências Únicas</span></h1>
+            <p>Da festa perfeita ao site profissional — criatividade e elegância em cada detalhe</p>
+            <button class="btn">Solicite um Orçamento</button>
+            <a href="https://wa.me/5511999999999" class="btn btn-secundario" target="_blank">💬 WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="servicos" id="servicos">
+        <h2>Nossos <span class="dourado">Serviços</span></h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">🎂</div>
+                <h3>Enfeites Impressos</h3>
+                <p>Personalizados para seus bolos e festas. Qualidade premium com os temas que você ama.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">✉️</div>
+                <h3>Cartões Digitais</h3>
+                <p>Convites e mensagens elegantes para qualquer ocasião. Criados especialmente para você.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Vídeos Curtos</h3>
+                <p>Conteúdo profissional para redes sociais. Ideais para divulgação e engajamento.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Criação de Sites</h3>
+                <p>Presença digital profissional e elegante. Sua empresa merece um site excepcional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+        <h2>Nossos <span class="dourado">Trabalhos</span></h2>
+        <div class="galeria-grid">
+            <div class="galeria-item">Tema Super-Heróis</div>
+            <div class="galeria-item">Festa Infantil Premium</div>
+            <div class="galeria-item">Cartão Digital Elegante</div>
+            <div class="galeria-item">Enfeite Personalizado</div>
+            <div class="galeria-item">Site Corporativo</div>
+            <div class="galeria-item">Vídeo Promocional</div>
+        </div>
+    </section>
+
+    <!-- CHAMADA À AÇÃO -->
+    <section class="cta" id="contato">
+        <h2>Pronto para Criar Algo Especial?</h2>
+        <p>Entre em contato conosco e vamos transformar sua ideia em uma experiência memorável.</p>
+        <button class="btn">Fale Conosco</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>José Criativos</h3>
+                <p>Transformando criatividade em realidade, com elegância e profissionalismo.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <a href="#servicos">Enfeites Impressos</a>
+                <a href="#servicos">Cartões Digitais</a>
+                <a href="#servicos">Vídeos Curtos</a>
+                <a href="#servicos">Criação de Sites</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📞 (11) 99999-9999</p>
+                <p>📧 contato@josecriativos.com</p>
+                <p>📍 São Paulo, SP</p>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" title="WhatsApp">W</a>
+            <a href="#" title="Instagram">I</a>
+            <a href="#" title="Facebook">F</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 José Criativos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
